@@ -185,8 +185,7 @@ public class MainActivity extends ActionBarActivity
         else if(id==R.id.about){
             AlertDialog.Builder alertdialog=new AlertDialog.Builder(this);
             alertdialog.setTitle("MusicPE 1.0");
-            alertdialog.setMessage("Music Player developed as a project for IBM internship By-" +
-                    "Aditya Singh,Ruchika Pandey and Vijay Joshi");
+            alertdialog.setMessage("Music Player developed as a project for IBM Training By Aditya Singh");
             alertdialog.setCancelable(true);
             alertdialog.setNeutralButton("OK", new DialogInterface.OnClickListener() {
                 @Override
