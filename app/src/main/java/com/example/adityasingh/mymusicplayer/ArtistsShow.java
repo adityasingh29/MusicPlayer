@@ -78,7 +78,7 @@ public class ArtistsShow extends ActionBarActivity {
             //add songs to list
             do {
                 long thisId = musicCursor.getLong(idColumn);
-                if(!artistsName.contains(musicCursor.getString(artistColumn)) && musicCursor.getString(artistColumn)!="unknown")
+                if(!artistsName.contains(musicCursor.getString(artistColumn)) && musicCursor.getString(artistColumn)!="")
                 {
                     String thisTitle = musicCursor.getString(titleColumn);
                     String thisArtist = musicCursor.getString(artistColumn);

@@ -52,6 +52,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -71,6 +72,7 @@ public class MainActivity extends ActionBarActivity
     private Intent playIntent;
     private boolean musicBound=false;
     private MusicController controller;
+    TextView tv;
     //    private MyMediaController myMediaController;
     private boolean paused=false, playbackPaused=false;
 
@@ -98,7 +100,7 @@ public class MainActivity extends ActionBarActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        tv=(TextView)findViewById(R.id.song_name_text);
 
         songView = (ListView)findViewById(R.id.song_list);
         songList = new ArrayList<Song>();
@@ -287,10 +289,14 @@ public class MainActivity extends ActionBarActivity
             setController();
             playbackPaused=false;
         }
+        setmytext();
         controller.show(0);
 //        myMediaController.show(2000);
     }
-
+    public void setmytext(){
+        String text=musicSrv.showSongName();
+        tv.setText(text);
+    }
     //    updated pause method
 //
     @Override
@@ -379,6 +385,7 @@ public class MainActivity extends ActionBarActivity
         }
 //        myMediaController.show(2000);
         controller.show(0);
+        setmytext();
     }
 
     private void playPrev(){
@@ -389,6 +396,7 @@ public class MainActivity extends ActionBarActivity
         }
 //        myMediaController.show(2000);
         controller.show();
+        setmytext();
     }
     @Override
     public void start() {

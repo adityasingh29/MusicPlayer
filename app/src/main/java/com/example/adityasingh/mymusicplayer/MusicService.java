@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.ContentUris;
+import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -13,7 +14,9 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -126,8 +129,14 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
         LocalBroadcastManager.getInstance(this).sendBroadcast(onPreparedIntent);
     }
 
+    public String showSongName(){
+        Song playSong = songs.get(songPosn);
+        songTitle=playSong.gettitle();
+        return songTitle;
+    }
+
     public void playSong(){
-        //play a song
+
         player.reset();
         Song playSong = songs.get(songPosn);
         songTitle=playSong.gettitle();
@@ -143,6 +152,7 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
         catch(Exception e){
             Log.e("MUSIC SERVICE", "Error setting data source", e);
         }
+
         player.prepareAsync();
     }
     public void setSong(int songIndex){
@@ -163,6 +173,7 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
 
     public void pausePlayer(){
         player.pause();
+
     }
 
     public void seek(int posn){
@@ -195,6 +206,7 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
 //    for shuffle button
 
     public void setShuffle(){
+
         if(shuffle) {
             shuffle = false;
             Toast.makeText(this,"Shuffle set OFF",Toast.LENGTH_SHORT).show();

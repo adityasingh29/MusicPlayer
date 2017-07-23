@@ -47,14 +47,11 @@ public class ArtistsAdapter extends BaseAdapter{
         //get song using position
         Song currSong = songs.get(i);
         //get title and artist strings
-        if(!artistsName.contains(currSong.getartist())){
+        if(!artistsName.contains(currSong.getartist()) && currSong.getartist()!=""){
             TextView artistView = (TextView)songLay.findViewById(R.id.song_artist_artists);
             artistView.setVisibility(View.VISIBLE);
             artistView.setText(currSong.getartist());
             artistsName.add(currSong.getartist());
-        }
-        else if(currSong.getartist()=="unknown"){
-
         }
 
             //set position as tag

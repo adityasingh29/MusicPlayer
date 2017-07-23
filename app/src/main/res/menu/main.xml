@@ -24,12 +24,12 @@
 
     <item
         app:showAsAction="always"
-        android:orderInCategory="3"
+        android:orderInCategory="2"
         android:icon="@drawable/shuffletwo"
         android:id="@+id/action_shuffle"/>
     <item
         app:showAsAction="always"
-        android:orderInCategory="4"
+        android:orderInCategory="3"
         android:icon="@drawable/crosssee"
         android:id="@+id/action_end"/>
 
